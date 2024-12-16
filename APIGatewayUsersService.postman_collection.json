@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "283e4bc6-4a65-4731-a124-4e636c13cc51",
+		"name": "APIGatewayUsersService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31393374"
+	},
+	"item": [
+		{
+			"name": "UpdateProfile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkpvaG4iLCJleHAiOjE3MzQzMTk2MjAsImlzcyI6InRlc3QtaXNzdWVyIiwiYXVkIjoidGVzdC1hdWRpZW5jZSJ9.9hX9eeUwPSuHEj_C8qpEz15y76WRVKWIwTz4-tqoBH8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Nico\",\r\n  \"firstLastName\": \"Santander\",\r\n  \"secondLastName\": \"Cuevas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5047/api/usersservice/update-profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5047",
+					"path": [
+						"api",
+						"usersservice",
+						"update-profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProgressUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkpvaG4iLCJleHAiOjE3MzQzMTc5MDEsImlzcyI6InRlc3QtaXNzdWVyIiwiYXVkIjoidGVzdC1hdWRpZW5jZSJ9.u9dGp2NmYGSctz7fyCQcP2Tk0-JxsdFB1Ggu-QGsNhs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5047/api/usersservice/my-progress",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5047",
+					"path": [
+						"api",
+						"usersservice",
+						"my-progress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetUserProgress",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkpvaG4iLCJleHAiOjE3MzQzMTc5MDEsImlzcyI6InRlc3QtaXNzdWVyIiwiYXVkIjoidGVzdC1hdWRpZW5jZSJ9.u9dGp2NmYGSctz7fyCQcP2Tk0-JxsdFB1Ggu-QGsNhs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5047/api/usersservice/my-progress",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5047",
+					"path": [
+						"api",
+						"usersservice",
+						"my-progress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProfile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG4uZG9lQGV4YW1wbGUuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkpvaG4iLCJleHAiOjE3MzQzMTc5MDEsImlzcyI6InRlc3QtaXNzdWVyIiwiYXVkIjoidGVzdC1hdWRpZW5jZSJ9.u9dGp2NmYGSctz7fyCQcP2Tk0-JxsdFB1Ggu-QGsNhs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5047/api/usersservice/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5047",
+					"path": [
+						"api",
+						"usersservice",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

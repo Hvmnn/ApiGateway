@@ -1,0 +1,182 @@
+{
+    "info": {
+      "name": "AuthService and CareersService",
+      "description": "Collection for testing AuthService (REST) and CareersService (gRPC).",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "AuthService",
+        "item": [
+          {
+            "name": "Login",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"email\": \"testuser@ucn.cl\",\n  \"password\": \"password123\"\n}"
+              },
+              "url": {
+                "raw": "https://localhost:5095/api/Auth/login",
+                "protocol": "https",
+                "host": ["localhost"],
+                "port": "5095",
+                "path": ["api", "Auth", "login"]
+              }
+            },
+            "response": [
+              {
+                "name": "Success",
+                "status": "OK",
+                "code": 200,
+                "body": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\"\n}",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Register",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"email\": \"newuser@example.com\",\n  \"password\": \"password123\",\n  \"name\": \"New User\",\n  \"firstLastName\": \"LastName1\",\n  \"secondLastName\": \"LastName2\",\n  \"rut\": \"987654321\",\n  \"careerId\": \"1\"\n}"
+              },
+              "url": {
+                "raw": "https://localhost:5095/api/Auth/register",
+                "protocol": "https",
+                "host": ["localhost"],
+                "port": "5095",
+                "path": ["api", "Auth", "register"]
+              }
+            },
+            "response": [
+              {
+                "name": "Created",
+                "status": "Created",
+                "code": 201,
+                "body": "{\n  \"email\": \"newuser@example.com\",\n  \"name\": \"New User\",\n  \"role\": \"User\"\n}",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Validate Token",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "https://localhost:5095/api/Auth/validate?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+                "protocol": "https",
+                "host": ["localhost"],
+                "port": "5095",
+                "path": ["api", "Auth", "validate"],
+                "query": [
+                  {
+                    "key": "token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                  }
+                ]
+              }
+            },
+            "response": [
+              {
+                "name": "Valid Token",
+                "status": "OK",
+                "code": 200,
+                "body": "{\n  \"isValid\": true\n}",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "CareersService",
+        "item": [
+          {
+            "name": "GetAllCareers",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": {
+                "raw": "grpc://localhost:5054/CareersService.CareerService/GetAllCareers",
+                "protocol": "grpc",
+                "host": ["localhost"],
+                "port": "5054",
+                "path": ["CareersService.CareerService", "GetAllCareers"]
+              }
+            },
+            "response": [
+              {
+                "name": "Success",
+                "status": "OK",
+                "code": 200,
+                "body": "{\n  \"careers\": [\n    {\n      \"id\": \"67588192fa9cce0b7acfacf4\",\n      \"name\": \"Arquitectura\"\n    },\n    {\n      \"id\": \"67588192fa9cce0b7acfacf5\",\n      \"name\": \"Ingeniería Civil\"\n    },\n    {\n      \"id\": \"67588192fa9cce0b7acfacf6\",\n      \"name\": \"Ingeniería Civil en Gestión de la Construcción\"\n    }\n  ]\n}",
+                "header": []
+              }
+            ]
+          },
+          {
+            "name": "GetAllSubjects",
+            "request": {
+              "method": "POST",
+              "header": [],
+              "body": {
+                "mode": "raw",
+                "raw": "{}"
+              },
+              "url": {
+                "raw": "grpc://localhost:5054/CareersService.SubjectService/GetAllSubjects",
+                "protocol": "grpc",
+                "host": ["localhost"],
+                "port": "5054",
+                "path": ["CareersService.SubjectService", "GetAllSubjects"]
+              }
+            },
+            "response": [
+              {
+                "name": "Success",
+                "status": "OK",
+                "code": 200,
+                "body": "{\n  \"subjects\": [\n    {\n      \"id\": \"675881cafa9cce0b7acfad1f\",\n      \"code\": \"ING-001\",\n      \"name\": \"Inglés I\",\n      \"department\": \"Dirección General de pregrado\",\n      \"credits\": 4,\n      \"semester\": 1\n    }\n  ]\n}",
+                "header": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
