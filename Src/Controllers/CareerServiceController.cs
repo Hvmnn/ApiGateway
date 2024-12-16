@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Google.Protobuf.WellKnownTypes;
 using CareerService.Grpc;
 
+/*
 namespace ApiGateway.Src.Controllers
 {
     [ApiController]
@@ -16,7 +17,6 @@ namespace ApiGateway.Src.Controllers
             _careerServiceClient = careerServiceClient;
         }
 
-        // Obtener todas las carreras
         [HttpGet("careers")]
         public async Task<IActionResult> GetAllCareers()
         {
@@ -25,7 +25,6 @@ namespace ApiGateway.Src.Controllers
             return Ok(response.Careers); // Devuelve la lista de carreras
         }
 
-        // Obtener todos los ramos
         [HttpGet("subjects")]
         public async Task<IActionResult> GetAllSubjects()
         {
@@ -34,7 +33,6 @@ namespace ApiGateway.Src.Controllers
             return Ok(response.Subjects); // Devuelve la lista de asignaturas
         }
 
-        // Obtener todas las relaciones entre ramos
         [HttpGet("subject-relationships")]
         public async Task<IActionResult> GetAllSubjectRelationships()
         {
@@ -44,3 +42,4 @@ namespace ApiGateway.Src.Controllers
         }
     }
 }
+*/
