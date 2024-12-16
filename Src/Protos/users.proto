@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+option csharp_namespace = "UserManagementService.Grpc";
+
+package usermanagementservice;
+
+service UserService {
+    // Get a list of all users
+    rpc GetAll (EmptyRequest) returns (UserListResponse);
+
+    // Get a user by email
+    rpc GetByEmail (EmailRequest) returns (UserResponse);
+
+    // Get a user by ID
+    rpc GetById (IdRequest) returns (UserResponse);
+
+    // Edit a user profile
+    rpc EditProfile (EditProfileRequest) returns (UserResponse);
+
+    // Check if a user is enabled
+    rpc IsEnabled (EmailRequest) returns (IsEnabledResponse);
+
+    // Get the current user profile
+    rpc GetProfile (EmptyRequest) returns (UserResponse);
+
+    // Get user progress
+    rpc GetUserProgress (EmptyRequest) returns (UserProgressListResponse);
+
+    // Set user progress
+    rpc SetUserProgress (UpdateUserProgressRequest) returns (EmptyResponse);
+}
+
+// Messages
+message EmptyRequest {}
+message EmptyResponse {}
+
+message EmailRequest {
+    string email = 1;
+}
+
+message IdRequest {
+    int32 id = 1;
+}
+
+message EditProfileRequest {
+    string name = 1;
+    string first_last_name = 2;
+    string second_last_name = 3;
+}
+
+message IsEnabledResponse {
+    bool is_enabled = 1;
+}
+
+message UserResponse {
+    int32 id = 1;
+    string name = 2;
+    string first_last_name = 3;
+    string second_last_name = 4;
+    string rut = 5;
+    string email = 6;
+    CareerResponse career = 7;
+}
+
+message CareerResponse {
+    int32 id = 1;
+    string name = 2;
+}
+
+message UserListResponse {
+    repeated UserResponse users = 1;
+}
+
+message UserProgress {
+    int32 id = 1;
+    string subject_code = 2;
+}
+
+message UserProgressListResponse {
+    repeated UserProgress progress = 1;
+}
+
+message UpdateUserProgressRequest {
+    repeated string add_subjects = 1;
+    repeated string delete_subjects = 2;
+}

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option csharp_namespace = "CareerService.Grpc";
+
+package careerservice;
+
+service CareerService {
+    rpc GetAllCareers (EmptyRequest) returns (CareerListResponse);
+    rpc GetAllSubjects (EmptyRequest) returns (SubjectListResponse);
+    rpc GetAllSubjectRelationships (EmptyRequest) returns (SubjectRelationshipListResponse);
+}
+
+message EmptyRequest {}
+
+message Career {
+    int32 id = 1;
+    string name = 2;
+}
+
+message CareerListResponse {
+    repeated Career careers = 1;
+}
+
+message Subject {
+    int32 id = 1;
+    string name = 2;
+}
+
+message SubjectListResponse {
+    repeated Subject subjects = 1;
+}
+
+message SubjectRelationship {
+    string pre_subject_code = 1;
+    string subject_code = 2;
+}
+
+message SubjectRelationshipListResponse {
+    repeated SubjectRelationship subject_relationships = 1;
+}
