@@ -1,7 +1,7 @@
 using Grpc.Core;
 using Microsoft.AspNetCore.Mvc;
 using Google.Protobuf.WellKnownTypes;
-using CareerService.Grpc;
+using CareerService.Grpc;  
 
 namespace ApiGateway.Src.Controllers
 {
@@ -9,7 +9,7 @@ namespace ApiGateway.Src.Controllers
     [Route("api/[controller]")]
     public class CareerServiceController : ControllerBase
     {
-        private readonly CareerService.Grpc.CareerServiceClient _careerServiceClient;  
+        private readonly CareerService.Grpc.CareerServiceClient _careerServiceClient; 
 
         public CareerServiceController(CareerService.Grpc.CareerServiceClient careerServiceClient)
         {
@@ -20,7 +20,7 @@ namespace ApiGateway.Src.Controllers
         [HttpGet("careers")]
         public async Task<IActionResult> GetAllCareers()
         {
-            var request = new Empty(); // Petición vacía (sin parámetros)
+            var request = new Empty(); 
             var response = await _careerServiceClient.GetAllCareersAsync(request);
             return Ok(response.Careers); // Devuelve la lista de carreras
         }
@@ -29,7 +29,7 @@ namespace ApiGateway.Src.Controllers
         [HttpGet("subjects")]
         public async Task<IActionResult> GetAllSubjects()
         {
-            var request = new Empty(); // Petición vacía (sin parámetros)
+            var request = new Empty(); 
             var response = await _careerServiceClient.GetAllSubjectsAsync(request);
             return Ok(response.Subjects); // Devuelve la lista de asignaturas
         }

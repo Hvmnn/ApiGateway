@@ -2,13 +2,12 @@ using System.Security.Claims;
 using System.Text;
 using ApiGateway.Src.Interceptors;
 using Microsoft.IdentityModel.Tokens;
-using ApiGateway.DTOs; // Asegúrate de que esta línea esté agregada para los DTOs que has integrado.
+using ApiGateway.DTOs; 
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-// Agregar clientes gRPC para interactuar con los microservicios (si los usas)
 builder.Services.AddGrpcClient<UserManagementService.Grpc.UserService.UserServiceClient>(options =>
 {
     options.Address = new Uri("http://localhost:5171");
