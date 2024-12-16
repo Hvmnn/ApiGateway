@@ -1,5 +1,3 @@
-using Grpc.Core;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UserManagementService.Grpc;
 
@@ -7,11 +5,11 @@ namespace ApiGateway.Src.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+    public class UsersServiceController : ControllerBase
     {
         private readonly UserService.UserServiceClient _userServiceClient;
 
-        public UsersController(UserService.UserServiceClient userServiceClient)
+        public UsersServiceController(UserService.UserServiceClient userServiceClient)
         {
             _userServiceClient = userServiceClient;
         }
